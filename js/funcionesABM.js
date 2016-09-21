@@ -29,17 +29,28 @@ function EditarCD(idParametro)
 			id:idParametro	
 		}
 	});
-	funcionAjax.done(function(retorno){
+	funcionAjax.done(function(retorno){		
+		//dormir en js -->setTimeout(funtion(),cantidad de segundos)
+
+		Mostrar("MostrarFormAlta")
+		setTimeout(function(){
+
+		console.log(retorno);
+
 		var cd =JSON.parse(retorno);	
 		$("#idCD").val(cd.id);
 		$("#cantante").val(cd.cantante);
 		$("#titulo").val(cd.titulo);
 		$("#anio").val(cd.año);
+	}, 500);		
+
 	});
 	funcionAjax.fail(function(retorno){	
 		$("#informe").html(retorno.responseText);	
 	});	
-	Mostrar("MostrarFormAlta");
+
+	
+
 }
 
 function GuardarCD()

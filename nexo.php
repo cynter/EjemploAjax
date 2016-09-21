@@ -41,6 +41,8 @@ switch ($queHago) {
 
 		break;
 	case 'TraerCD':
+			//que se duerma 5 seg
+			//sleep(5);
 			$cd = cd::TraerUnCd($_POST['id']);		
 			echo json_encode($cd) ;
 
